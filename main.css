@@ -407,9 +407,12 @@ table>:not(caption)>*>* {
     border-bottom-width: 1px
 }
 
+/* FIXME: This was causing problems in dark mode - need dark mode styles for table. */
+/*
 table>tbody>tr:hover>* {
     background-color: color-mix(in srgb, var(--color-text), var(--color-white) 90%)
 }
+*/
 
 .w-25 {
     width: 25% !important

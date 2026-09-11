@@ -1,470 +1,717 @@
 <!doctype html>
-<html lang=en>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-<head>
-    <meta charset=utf-8>
-    <meta content="width=device-width,initial-scale=1" name=viewport>
-    <link href=main.css rel=stylesheet>
-    <title>Workshop on Emerging Trends in Web Advertising</title>
-    <meta content="Workshop on Emerging Trends in Web Advertising" property=og:title>
-    <link href=https://samsunginternet.github.io/webads26/ rel=canonical>
-    <meta content=https://samsunginternet.github.io/webads26/ property=og:url>
-    <meta content=website property=og:type>
-    <meta content="Workshop on Emerging Trends in Web Advertising" property=twitter:title>
-    <script
+        <!-- NEW:
+         Explicitly tell the browser as early as possible that
+         both light and dark colour schemes are supported. -->
+        <meta name="color-scheme" content="light dark" />
+
+        <link href="main.css" rel="stylesheet" />
+        <title>Workshop on Emerging Trends in Web Advertising</title>
+        <meta content="Workshop on Emerging Trends in Web Advertising" property="og:title" />
+        <link href="https://samsunginternet.github.io/webads26/" rel="canonical" />
+        <meta content="https://samsunginternet.github.io/webads26/" property="og:url" />
+        <meta content="website" property="og:type" />
+        <meta content="Workshop on Emerging Trends in Web Advertising" property="twitter:title" />
+        
+        <!--
+        WRONG / OLD:
+
+        The original JSON-LD had an unterminated URL string:
+
+        <script
         type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","headline":"Workshop on Emerging Trends in Web Advertising","name":"Workshop on Emerging Trends in Web Advertising","url":"https://pages.github.sec.samsung.net/e-toreini/webads26/}</script>
-    <style>
-        .tg {
-            border-collapse: collapse;
-            border-color: #ccc;
-            border-spacing: 0;
-        }
+        -->
+        
+        <!-- NEW: Correctly formed JSON-LD. -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "headline": "Workshop on Emerging Trends in Web Advertising",
+                "name": "Workshop on Emerging Trends in Web Advertising",
+                "url": "https://pages.github.sec.samsung.net/e-toreini/webads26/"
+            }
+        </script>
 
-        .tg td {
-            background-color: #fff;
-            border-color: #ccc;
-            border-style: solid;
-            border-width: 1px;
-            color: #333;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            overflow: hidden;
-            padding: 10px 5px;
-            word-break: normal;
-        }
+        <!--
+        WRONG / OLD:
 
-        .tg th {
-            background-color: #f0f0f0;
-            border-color: #ccc;
-            border-style: solid;
-            border-width: 1px;
-            color: #333;
-            font-family: Arial, sans-serif;
+        The .tg table CSS previously lived here and hard-coded
+        light-mode colours:
 
-            font-weight: normal;
-            overflow: hidden;
-            padding: 10px 5px;
-            word-break: normal;
-        }
+        border-color: #ccc;
+        background-color: #fff;
+        color: #333;
+        background-color: #f0f0f0;
 
-        .tg .tg-c3ow {
-            border-color: inherit;
-            text-align: center;
-            vertical-align: top
-        }
+        These rules have now been moved into main.css and their
+        original declarations are preserved there as comments.
+        -->
+    </head>
 
-        .tg .tg-0pky {
-            border-color: inherit;
-            text-align: left;
-            vertical-align: top
-        }
-    </style>
-</head>
+    <body>
+        <header class="n:container r:d-none">
+            <nav class="n:menu text-right">
+                <input class="btn-check" id="nav" type="checkbox" />
+                <label class="n:icon d-inline-block m-1" aria-label="button" for="nav"> </label>
+                <div class="ml-3 d-none b:d-flex flex-column"></div>
+            </nav>
+        </header>
 
-<body>
-    <header class="n:container r:d-none">
-        <nav class="n:menu text-right"><input class=btn-check id=nav type=checkbox><label
-                class="n:icon d-inline-block m-1" aria-label=button for=nav></label>
-            <div class="ml-3 d-none b:d-flex flex-column"></div>
-        </nav>
-    </header>
-    <header class="bg-odd bg-jpg bg-fixed">
-        <div class="container d-flex justify-center">
-            <div class="header text-center px-3 py-4 fade">
-                <h1 id=home><span class="tagline h3">The Web Conference Workshop 2026</span> Workshop on Emerging Trends
-                    in Web Advertising</h1>
-                <h2 class=h3>Research and Brainstorming Event</h2>
-                <div class="d-flex flex-wrap justify-center"><a class="btn m-1" href=#call-for-paper>Call for
-                        Papers</a><a class="btn m-1" href=#organisors>Workshop Organisation</a><a class="btn m-1"
-                        href=#agenda>Accepted Papers and Agenda</a><a class="btn m-1"
-                        href=#brainstorming-agenda>Brainstorming Agenda</a><a class="btn m-1"
-                        href=report.html>Workshop Report</a></div>
+        <header class="bg-odd bg-jpg bg-fixed">
+            <div class="container d-flex justify-center">
+                <div class="header text-center px-3 py-4 fade">
+                    <h1 id="home">
+                        <span class="tagline h3"> The Web Conference Workshop 2026 </span>
+                        Workshop on Emerging Trends in Web Advertising
+                    </h1>
+                    <h2 class="h3">Research and Brainstorming Event</h2>
+                    <div class="d-flex flex-wrap justify-center">
+                        <a class="btn m-1" href="#call-for-paper"> Call for Papers </a>
+                        <a class="btn m-1" href="#organisors"> Workshop Organisation </a>
+                        <a class="btn m-1" href="#agenda"> Accepted Papers and Agenda </a>
+                        <a class="btn m-1" href="#brainstorming-agenda"> Brainstorming Agenda </a>
+                        <a class="btn m-1" href="report.html"> Workshop Report </a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
-    <main aria-label=Content>
-        <div class=bg-even>
-            <section class="container content py-5">
-                <p>The field of web advertising is rapidly evolving, driven by emerging technologies and innovative
-                    approaches that aim to enhance user privacy, AI-driven technologies and more personalised
-                    experiences. The exploration of new trends and technologies is crucial in the dynamic landscape,
-                    especially with the recent privacy-focused initiative in digital advertising and immersive
-                    technologies. In this blended workshop on <em>Emerging Trends in Web Advertising</em>, the Web
-                    Standards Group at Samsung Research and Development Institute UK (SRUK) invites experts from
-                    advertising, privacy, data science, and related disciplines to showcase their research and insights
-                    on the latest advancements in the field. The workshop will explore key areas such as data privacy in
-                    advertising, AI-driven analytics, and the role of immersive technologies in ad delivery. This event
-                    serves as a collaborative platform to exchange experiences, discuss challenges, and explore
-                    opportunities in leveraging these technologies to redefine web advertising. Participants will have
-                    the opportunity to present their work, engage in scholarly discourse, and collaborate on shaping the
-                    future trajectory of this interdisciplinary field.
-                <p>The workshop is structured into two parts: the <strong>Research session</strong> and the
-                    <strong>Brainstorming session</strong>, designed to facilitate both scholarly exchange and
-                    collaborative exploration of emerging technologies in web advertising.
-                <div style="background-color: #f0f9ff; border-left: 4px solid #2563eb; padding: 1rem 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0;">
-                    <strong>📄 Workshop Report Now Available:</strong> The final report from the Web Advertising Workshop is now available. 
-                    <a href="report.html" style="color: #2563eb; text-decoration: none;">Read the full report →</a>
-                </div>
-                <h2 id=research-session>Research session</h2>
-                <p>The Research session will follow a classic presentation-style format, featuring invited talks and
-                    paper presentations. The provisional agenda for this session is as follows:
-                <ul>
-                    <li>Welcome/opening by the organisers: A brief introduction to the workshop, its objectives, and the
-                        agenda.
-                    <li>Invited talk on AI and Advertising: A presentation by an academic expert focusing on Agentic AI
-                        and machine learning in the context of private advertising, exploring their role in enhancing
-                        user privacy while maintaining effective advertising strategies.
-                    <li>Paper presentations: Presentations of accepted research papers, followed by Q&A sessions to
-                        encourage discussion and feedback.
-                </ul>
-                <h2 id=brainstorming-session>Brainstorming session</h2>
-                <p>The Brainstorming session will focus on practical insights and collaborative problem-solving. This
-                    session in divided in two brainstorming sessions:
-                <ul>
-                    <li><em>Emerging advertising platform:</em> A 90-minute discussion beginning with a mini
-                        presentation on the WebXR Device API, followed by an open discussion exploring challenges,
-                        implementation technologies, and the role of sensors, haptic feedback, and vision recognition in
-                        immersive advertising. The discussion will also address market trends and future predictions.
-                    <li><em>Post-cookie advertising:</em> A 90-minute discussion beginning with a mini presentation on
-                        privacy initiatives in the web ecosystem, followed by an open discussion on the impact of
-                        private advertising initiatives and other efforts to enhance post-cookie era across the
-                        advertising ecosystem.
-                </ul>
-                <p>This blended approach ensures a balanced combination of academic rigour and practical innovation,
-                    providing participants with opportunities to share knowledge, engage in meaningful discussions, and
-                    collaborate on shaping the future of web advertising.
-            </section>
-        </div>
-        <div class=bg-odd>
-            <section class="container content py-5">
-                <h2 id=call-for-paper>Call For Paper</h2>
-                <p>Workshop papers must be written in English, in double-column format, and must adhere to the ACM
-                    template and formatting, at least 4 pages, excluding the references. The maximum page
-                    limit for the workshop is 8 pages, excluding the references, up to a maximum of 12 (twelve) pages in
-                    total. Submissions should have the same format as the main conference papers
-                    (<a
-                        href="https://www2026.thewebconf.org/calls/research-tracks.html">https://www2026.thewebconf.org/calls/research-tracks.html</a>).
-                    Word users may use the Word Interim
-                    Template.
-                <p>Papers will be peer-reviewed and selected for the presentation. We also welcome recent and ongoing
-                    research studies submissions (including the vision papers, short papers and SoK).
-                <p>Large Language Models (LLMs) (e.g., ChatGPT) cannot be considered authors. You can use LLMs to
-                    rephrase your text, but you are solely responsible for the text in the paper.
-                <p>The review process will be double-blind. The submitted document should omit any author names,
-                    affiliations, or other identifying information. This may include, but is not restricted to
-                    acknowledgments, self-citations, references to prior work by the author(s), and so on. Please use
-                    the third-person to identify your own prior work. You may explicitly refer in the paper to
-                    organisations that provided datasets, hosted experiments, or deployed solutions and tools.
-                <p><strong>Paper Submission on <a
-                            href="https://easychair.org/my2/conference?conf=www2026workshops">easychair.</a></strong>
-                <h3 id=main-conference-recycled-paper-submission>Main Conference Recycled Paper Submission</h3>
-                <p>We have a special submission call for the <b>recycled papers</b> from the main conference. These
-                    papers will undergo a fast-track review process. For the submission, <u>Please include the original
-                        review as an
-                        appendix.</u> We assure that the review will remain confidential. Please see the <a
-                        href=#important-dates-aoe>Important Dates section</a> for detail on that.
-                <h2 id=topics>Topics</h2>
-                <p>The blended workshop aims to explore the dynamic and rapidly evolving landscape of web advertising,
-                    focusing on cutting-edge technologies, ethical considerations, and future trends. By addressing a
-                    wide range of topics, the event seeks to foster interdisciplinary dialogue and collaboration among
-                    researchers, practitioners, and policymakers. Below is a list of key topics of interest that will
-                    guide the discussions and research contributions during the workshop:
-                <ul>
-                    <li>Post-Cookie Contextual Advertising
-                    <li>Privacy-Enhancing Technologies in Web Advertising
-                    <li>Immersive Advertising: AR/VR/MR Applications
-                    <li>Machine Learning and AI in Web Advertising
-                    <li>Ethical Considerations in Web Advertising
-                    <li>User Experience (UX) Design for Web Advertising
-                    <li>Data-Driven Personalisation in Web Advertising
-                    <li>Blockchain and Decentralised Advertising Models
-                    <li>Cross-Platform Advertising Strategies
-                    <li>Behavioural Advertising and Consumer Privacy
-                    <li>Web Advertising and Accessibility for Diverse Audiences
-                    <li>Web Standards and Advertising Technologies
-                    <li>Emerging Trends in Programmatic Advertising
-                    <li>Sustainability in Web Advertising: Energy Efficiency and Environmental Impact
-                    <li>Ad Fraud Detection and Prevention Techniques
-                    <li>Cultural and Regional Differences in Advertising Strategies
-                    <li>Interactive and Gamified Advertising Experiences
-                    <li>Malvertising detection and prevention
-                    <li>Age-specific Web advertisement
-                    <li>Vulnerabilities in advertising ecosystems
-                </ul>
-                <h2 id=important-dates-aoe>Important Dates (AoE)</h2>
-                <ul>
-                    <li>Workshop paper submission (Extended): <s>31 December, 2025</s> <span style="color:red">11
-                            January, 2026</span>
-                    <li><b>Recycled Paper Fast Track submission: 13 - 18 January, 2026</b>
-                    <li>Workshop paper notification: 19 January, 2026
-                    <li>Workshop paper camera-ready (Extended): <s>26 January, 2026</s> <span style="color:red">2
-                            February, 2026</span>
-                    <li>Workshops: <s>April 13, 2026</s> <span style="color:red">29, June, 2026 (Remote)</span>
-                </ul>
-            </section>
-        </div>
-        <div class=bg-even>
-            <section id="organisors" class="container content py-5">
-                <h2 id=organising-committees>Organising Committees</h2>
-                <h3 id=workshop-chair>Workshop Chair</h3>
-                <ul>
-                    <li>Ehsan Toreini (<a href=mailto:e.toreini@samsung.com>e.toreini@samsung.com</a>, Samsung Research
-                        and Development Institute UK)
-                    <li>Muadh Al Kalbani (<a href=mailto:m.alkalbani@samsung.com>m.alkalbani@samsung.com</a>, Samsung
-                        Research and Development Institute UK)
-                </ul>
-                <h4 id=contact-us>Contact us</h4>
-                <p>For any questions, please reach out to the organisors’ email addresses.
-                <h3 id=media-chair>Media Chair</h3>
-                <ul>
-                    <li>Ananya Kittane Yogananda (<a href=mailto:a.yogananda@samsung.com>a.yogananda@samsung.com</a>,
-                        Samsung Research and Development Institute UK)
-                </ul>
-                <h3 id=program-committee>Program Committee</h3>
-                <ul>
-                    <li>Maryam Mehrnezhad (Royal Holloway university of London)
-                    <li>Matthew Atkinson (Samsung Research and Development Institute UK)
-                    <li>Elizabeth Quaglia (Royal Holloway university of London)
-                    <li>Roman Bauer (University of Surrey)
-                    <li>Maite Frutos-Pascual (Birmingham City University)
-                    <li>Stamos Katsigiannis (Durham University)
-                    <li>Vinoba Vinayagamoorthy (Samsung Research and Development Institute UK)
-                    <li>Charles Morisset (Durham University)
-                    <li>Shrikant Malviya (SV National Institute of Technology)
-                    <li>Roben Castagna Lunardi (IFRS)
-                    <li>Marco Agus (Hamad Bin Khalifa University)
-                    <li>Angeliki Tzouganato (OpenAIRE AMKE)
-                    <li>Mina Alishahi (Open Universiteit)
-                    <li>Yasuhiro Yoshida (Google)
-                </ul>
-            </section>
-        </div>
-        <div class=bg-odd>
-            <section id="agenda" class="container content py-5">
-                <h2 id="keynote">Keynote Speaker</h2>
-                <div class="d-flex" style="gap:1.5rem;align-items:stretch;">
-                    <div style="flex:1;">
-                        <p>Keynote speaker, Mili Adlakha, Product Management - Samsung Browser.</p>
-                        <p>Keynote Title: “𝗦𝗮𝗺𝘀𝘂𝗻𝗴 𝗕𝗿𝗼𝘄𝘀𝗲𝗿 𝗮𝗻𝗱 𝘁𝗵𝗲 𝗙𝘂𝘁𝘂𝗿𝗲 𝗼𝗳 𝗔𝗜-𝗣𝗼𝘄𝗲𝗿𝗲𝗱
-                            𝗪𝗲𝗯 𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲𝘀”</p>
-                        <p>The keynote will explore the shift towards more agentic web browsers and what this could mean for
-                            the wider web ecosystem, including privacy, governance, advertising attribution and monetisation,
-                            and the browser’s evolving role as a mediator between users, publishers, services and advertisers.
-                        </p>
+        </header>
+
+        <main aria-label="Content">
+            <div class="bg-even">
+                <section class="container content py-5">
+                    <p>
+                        The field of web advertising is rapidly evolving, driven by emerging technologies and innovative
+                        approaches that aim to enhance user privacy, AI-driven technologies and more personalised
+                        experiences. The exploration of new trends and technologies is crucial in the dynamic landscape,
+                        especially with the recent privacy-focused initiative in digital advertising and immersive
+                        technologies. In this blended workshop on <em>Emerging Trends in Web Advertising</em>, the Web
+                        Standards Group at Samsung Research and Development Institute UK (SRUK) invites experts from
+                        advertising, privacy, data science, and related disciplines to showcase their research and
+                        insights on the latest advancements in the field. The workshop will explore key areas such as
+                        data privacy in advertising, AI-driven analytics, and the role of immersive technologies in ad
+                        delivery. This event serves as a collaborative platform to exchange experiences, discuss
+                        challenges, and explore opportunities in leveraging these technologies to redefine web
+                        advertising. Participants will have the opportunity to present their work, engage in scholarly
+                        discourse, and collaborate on shaping the future trajectory of this interdisciplinary field.
+                    </p>
+
+                    <p>
+                        The workshop is structured into two parts: the <strong>Research session</strong> and the
+                        <strong>Brainstorming session</strong>, designed to facilitate both scholarly exchange and
+                        collaborative exploration of emerging technologies in web advertising.
+                    </p>
+
+                    <!--
+                    WRONG / OLD:
+
+                    This component used fixed light-mode colours which
+                    overrode the system/theme colour scheme.
+
+                    <div style="background-color: #f0f9ff; border-left: 4px solid #2563eb; padding: 1rem 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0;">
+                        <strong>📄 Workshop Report Now Available:</strong>
+                        The final report from the Web Advertising Workshop is now available.
+                        <a href="report.html" style="color: #2563eb; text-decoration: none;">
+                            Read the full report →
+                        </a>
                     </div>
-                    <div style="flex:1;display:flex;">
-                        <img style="width:100%;height:100%;object-fit:cover;" src="mili.jpg" alt="Mili Adlakha" />
+                    -->
+
+                    <!-- NEW:
+                     Presentation is now controlled by theme-aware
+                     rules in main.css. -->
+                    <div class="report-banner">
+                        <strong> 📄 Workshop Report Now Available: </strong>
+
+                        The final report from the Web Advertising Workshop is now available.
+
+                        <a href="report.html"> Read the full report → </a>
                     </div>
-                </div>
 
+                    <h2 id="research-session">Research session</h2>
 
-                <h2 id=accepted-papers>Accepted Papers</h2>
-                <ol>
-                    <li><b>Towards Automated Brand-Safety Detection: A Novel Dataset and Comparative Analysis of
-                            Language Models</b>, <i>Xin Peng and Gerald Penn</i>
-                    <li><b>Feedback Control for Small Budget Campaigns in Advertising</b>, <i>Sreeja Apparaju, Yichuan
-                            Niu and Xixi Qi</i>
-                    <li><b>Calculating Narrative Tension for Ad Placement in Online Narrative Fiction</b>, <i>Vedansh
-                            Mehta, Sajad Shirali-Shahreza and Gerald Penn</i>
-                    <li><b>Anatomy of Generative Scam Campaigns in Online Advertising Ecosystems</b>, <i>Ewelina
-                            Bartuzi-Trokielewicz and Alicja Martinek</i>
-                    <li><b>Smart Fast Finish: Preventing Overdelivery via Daily Budget Pacing at DoorDash</b>, <i>Rohan
-                            Garg, Yongjin Xiao, Jason Yang and Mandar Rahurkar</i>
-                    <li><b>HarmonRank: Ranking-aligned Multi-objective Ensemble for Live-streaming E-commerce
-                            Recommendation</b>, <i>Boyang Xia, Zhou Yu, Zhiliang Zhu, Hanxiao Sun, Biyun Han, Jun Wang,
-                            Runnan Liu and Wenwu Ou</i>
-                </ol>
-                <h2 id=workshop-agenda>Workshop Agenda</h2>
-                <p>Workshop will run on <a
-                        href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=Workshop+on+Emerging+Trends+in+Web+Advertising&iso=20260629T10&p1=776&ah=7&am=30">Monday
-                        the 29th of June, from 10:00 to 17:30 Dubai time</a>. For brainstorming, please carefully read
-                    the requirements to prepare <b>before the sessions</b> <a href="#brainstorming-agenda">here.</a></p>
-                <table class="tg">
-                    <thead>
-                        <tr>
-                            <th class="tg-c3ow">Topic</th>
-                            <th class="tg-c3ow">10:00 - 17:30</th>
-                            <th class="tg-c3ow">Allocated Duration (minutes)</th>
-                            <th class="tg-c3ow">From - To (Dubai Local Time)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="tg-0pky">Opening</td>
-                            <td class="tg-0pky">Workshop Welcome</td>
-                            <td class="tg-0pky">10</td>
-                            <td class="tg-0pky" rowspan="2">10:00 - 10:50</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Keynote Presentation</td>
-                            <td class="tg-0pky">Samsung Browser and the Future of AI-Powered Web Experiences</td>
-                            <td class="tg-0pky">40</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Coffee Break</td>
-                            <td class="tg-0pky"></td>
-                            <td class="tg-0pky">10</td>
-                            <td class="tg-0pky">10:50 - 11:00</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky" rowspan="2">Sessions 1 (Emerging topics in Ad Fraud)</td>
-                            <td class="tg-0pky">Towards Automated Brand-Safety Detection: A Novel Dataset and
-                                Comparative Analysis of Language Models</td>
-                            <td class="tg-0pky">25</td>
-                            <td class="tg-0pky" rowspan="2">11:00 - 11:50</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Anatomy of Generative Scam Campaigns in Online Advertising Ecosystems
-                            </td>
-                            <td class="tg-0pky">25</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Coffee Break and Networking</td>
-                            <td class="tg-0pky"></td>
-                            <td class="tg-0pky">10</td>
-                            <td class="tg-0pky">11:50 - 12:00</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky" rowspan="3">Session 2 (Emerging topics in Ad delivery)</td>
-                            <td class="tg-0pky">Feedback Control for Small Budget Campaigns in Advertising</td>
-                            <td class="tg-0pky">25</td>
-                            <td class="tg-0pky" rowspan="3">12:00 - 13:15</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Calculating Narrative Tension for Ad Placement in Online Narrative
-                                Fiction</td>
-                            <td class="tg-0pky">25</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Smart Fast Finish: Preventing Overdelivery via Daily Budget Pacing at
-                                DoorDash</td>
-                            <td class="tg-0pky">25</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Lunch and Networking</td>
-                            <td class="tg-0pky"></td>
-                            <td class="tg-0pky">45</td>
-                            <td class="tg-0pky">13:15 - 14:00</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Brainstorming 1 (Emerging Advertising Platforms)</td>
-                            <td class="tg-0pky">open discussion on challenges, implementation technologies, and the role
-                                of sensors, haptic feedback, and vision recognition in immersive advertising </td>
-                            <td class="tg-0pky">90</td>
-                            <td class="tg-0pky">14:00 - 15:30</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Coffee Break and Networking</td>
-                            <td class="tg-0pky"></td>
-                            <td class="tg-0pky">15</td>
-                            <td class="tg-0pky">15:30 - 15:45</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Brainstorming 2 (Post-cookie Advertising)</td>
-                            <td class="tg-0pky">open discussion on the impact of private advertising initiatives and
-                                efforts to enhance the post-cookie era across the advertising ecosystem</td>
-                            <td class="tg-0pky">90</td>
-                            <td class="tg-0pky">15:45 - 17:15</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0pky">Remarks and Future Plans</td>
-                            <td class="tg-0pky">Closing Presentation</td>
-                            <td class="tg-0pky">15</td>
-                            <td class="tg-0pky">17:15 - 17:30</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <p>
+                        The Research session will follow a classic presentation-style format, featuring invited talks
+                        and paper presentations. The provisional agenda for this session is as follows:
+                    </p>
 
-                <h2 id="brainstorming-agenda">Brainstorming Session detail</h2>
+                    <ul>
+                        <li>
+                            Welcome/opening by the organisers: A brief introduction to the workshop, its objectives, and
+                            the agenda.
+                        </li>
+                        <li>
+                            Invited talk on AI and Advertising: A presentation by an academic expert focusing on Agentic
+                            AI and machine learning in the context of private advertising, exploring their role in
+                            enhancing user privacy while maintaining effective advertising strategies.
+                        </li>
+                        <li>
+                            Paper presentations: Presentations of accepted research papers, followed by Q&amp;A sessions
+                            to encourage discussion and feedback.
+                        </li>
+                    </ul>
 
-                <h3> Brainstorming Preparations</h3>
+                    <h2 id="brainstorming-session">Brainstorming session</h2>
 
-                <p>As we approach the workshop, Please think about three discussion questions for each of the
-                    brainstorming topics. These questions
-                    should aim to spark discussion and engagement. The questions should include:</p>
+                    <p>
+                        The Brainstorming session will focus on practical insights and collaborative problem-solving.
+                        This session in divided in two brainstorming sessions:
+                    </p>
 
-                <ol>
-                    <li><b>One controversial question:</b> A controversial question that challenges existing norms or
-                        sparks
-                        debate.</li>
-                    <li><b>One practical implementation challenge:</b> A question that addresses real-world challenges
-                        in
-                        implementing the discussed ideas or technologies.</li>
-                    <li><b>One future research question:</b> A question that explores potential areas for future
-                        research or
-                        innovation.</li>
-                </ol>
+                    <ul>
+                        <li>
+                            <em>Emerging advertising platform:</em>
+                            A 90-minute discussion beginning with a mini presentation on the WebXR Device API, followed
+                            by an open discussion exploring challenges, implementation technologies, and the role of
+                            sensors, haptic feedback, and vision recognition in immersive advertising. The discussion
+                            will also address market trends and future predictions.
+                        </li>
+                        <li>
+                            <em>Post-cookie advertising:</em>
+                            A 90-minute discussion beginning with a mini presentation on privacy initiatives in the web
+                            ecosystem, followed by an open discussion on the impact of private advertising initiatives
+                            and other efforts to enhance post-cookie era across the advertising ecosystem.
+                        </li>
+                    </ul>
 
-                <p>Example:
-                    “Should privacy-preserving advertising be standardised at the browser level or application level?”
-                </p>
+                    <p>
+                        This blended approach ensures a balanced combination of academic rigour and practical
+                        innovation, providing participants with opportunities to share knowledge, engage in meaningful
+                        discussions, and collaborate on shaping the future of web advertising.
+                    </p>
+                </section>
+            </div>
 
-                <p>On the day, we will discuss the brainstorming sessions to achieve the following goals:</p>
+            <div class="bg-odd">
+                <section class="container content py-5">
+                    <h2 id="call-for-paper">Call For Paper</h2>
 
-                <h3>Brainstorming Session 1 - Emerging Advertising Platforms</h3>
-                <h4>Goals:</h4>
-                <ul>
-                    <li>Explore the role of immersive technologies, including WebXR, AR/VR/MR, spatial browsing,
-                        sensors, haptics and AI-mediated experiences, in shaping future web advertising.</li>
-                    <li>Discuss practical opportunities and implementation challenges for immersive advertising,
-                        including browser/device support, permissions, interoperability, measurement, accessibility and
-                        developer experience.</li>
-                    <li>Identify responsible approaches for immersive advertising that provide user value while avoiding
-                        intrusive, manipulative or privacy-invasive patterns.</li>
-                </ul>
-                <h4>Seed Questions:</h4>
-                <ol>
-                    <li>What immersive advertising experiences provide genuine value to users, such as product
-                        visualisation, try-before-you-buy, contextual placement or opt-in interactive adverts?</li>
-                    <li>How can WebXR and related technologies, such as depth sensing, hand input, camera-enabled
-                        features, haptics, light estimation, support useful advertising without excessive sensor access?
-                    </li>
-                    <li>What are the main challenges in implementing immersive advertising at scale, including
-                        performance, permissions, fallbacks, measurement and cross-platform support?</li>
-                    <li>What privacy, safety, accessibility and UX guardrails are needed for spatial adverts, including
-                        ad labelling, user controls, dismiss/block options and protection against biometric or
-                        environmental profiling?</li>
-                </ol>
-                <h4>Expected Outputs:</h4>
-                <ul>
-                    <li>Top 5 promising immersive advertising use cases.</li>
-                    <li>Top 5 implementation challenges for WebXR and immersive advertising technologies.</li>
-                    <li>Top 3 privacy, UX or standardisation guardrails for responsible immersive advertising.</li>
-                    <li>Top 3 market or research trends to watch in the next 3–5 years</li>
-                </ul>
+                    <p>
+                        Workshop papers must be written in English, in double-column format, and must adhere to the ACM
+                        template and formatting, at least 4 pages, excluding the references. The maximum page limit for
+                        the workshop is 8 pages, excluding the references, up to a maximum of 12 (twelve) pages in
+                        total. Submissions should have the same format as the main conference papers (<a
+                            href="https://www2026.thewebconf.org/calls/research-tracks.html"
+                            >https://www2026.thewebconf.org/calls/research-tracks.html</a
+                        >). Word users may use the Word Interim Template.
+                    </p>
 
-                <hr>
+                    <p>
+                        Papers will be peer-reviewed and selected for the presentation. We also welcome recent and
+                        ongoing research studies submissions (including the vision papers, short papers and SoK).
+                    </p>
 
-                <h3>Brainstorming Session 2 - Future of Post-Cookie Advertising</h3>
-                <h4>Goals:</h4>
-                <ul>
-                    <li>Identify key research gaps and challenges in the post-cookie advertising landscape.</li>
-                    <li>Explore opportunities for standardization and collaboration across the advertising ecosystem.
-                    </li>
-                    <li>Foster discussions on innovative solutions and future research directions.</li>
-                </ul>
-                <h4>Seed Questions:</h4>
-                <ol>
-                    <li>What are the main research gaps in post-cookie advertising?</li>
-                    <li>What standardization opportunities exist to ensure a seamless transition?</li>
-                    <li>How can privacy-preserving technologies be effectively integrated into advertising strategies?
-                    </li>
-                </ol>
-                <h4>Expected Outputs:</h4>
-                <ul>
-                    <li>Top 5 promising post-cookie use cases.</li>
-                    <li>Top 5 implementation challenges for post-cookie advertising era.</li>
-                    <li>Top 3 standardisation guardrails for responsible post-cookie advertising.</li>
-                    <li>Top 3 market or research trends to watch in the next 3–5 years</li>
-                </ul>
-            </section>
-        </div>
-    </main>
-    <footer class=footer>
-        <p>This website is built using <a href=https://www.getzola.org>Zola</a> and the <a
-                href=http://github.com/aterenin/academic-workshop />Academic Workshop</a> theme, which is <a
-                href=https://jeffhuang.com/designed_to_last />designed to last</a>.
-    </footer>
-</body>
+                    <p>
+                        Large Language Models (LLMs) (e.g., ChatGPT) cannot be considered authors. You can use LLMs to
+                        rephrase your text, but you are solely responsible for the text in the paper.
+                    </p>
 
+                    <p>
+                        The review process will be double-blind. The submitted document should omit any author names,
+                        affiliations, or other identifying information. This may include, but is not restricted to
+                        acknowledgments, self-citations, references to prior work by the author(s), and so on. Please
+                        use the third-person to identify your own prior work. You may explicitly refer in the paper to
+                        organisations that provided datasets, hosted experiments, or deployed solutions and tools.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Paper Submission on
+                            <a href="https://easychair.org/my2/conference?conf=www2026workshops"> easychair. </a>
+                        </strong>
+                    </p>
+
+                    <h3 id="main-conference-recycled-paper-submission">Main Conference Recycled Paper Submission</h3>
+
+                    <p>
+                        We have a special submission call for the <b>recycled papers</b> from the main conference. These
+                        papers will undergo a fast-track review process. For the submission,
+                        <u>Please include the original review as an appendix.</u>
+                        We assure that the review will remain confidential. Please see the
+                        <a href="#important-dates-aoe">Important Dates section</a>
+                        for detail on that.
+                    </p>
+
+                    <h2 id="topics">Topics</h2>
+
+                    <p>
+                        The blended workshop aims to explore the dynamic and rapidly evolving landscape of web
+                        advertising, focusing on cutting-edge technologies, ethical considerations, and future trends.
+                        By addressing a wide range of topics, the event seeks to foster interdisciplinary dialogue and
+                        collaboration among researchers, practitioners, and policymakers. Below is a list of key topics
+                        of interest that will guide the discussions and research contributions during the workshop:
+                    </p>
+
+                    <ul>
+                        <li>Post-Cookie Contextual Advertising</li>
+                        <li>Privacy-Enhancing Technologies in Web Advertising</li>
+                        <li>Immersive Advertising: AR/VR/MR Applications</li>
+                        <li>Machine Learning and AI in Web Advertising</li>
+                        <li>Ethical Considerations in Web Advertising</li>
+                        <li>User Experience (UX) Design for Web Advertising</li>
+                        <li>Data-Driven Personalisation in Web Advertising</li>
+                        <li>Blockchain and Decentralised Advertising Models</li>
+                        <li>Cross-Platform Advertising Strategies</li>
+                        <li>Behavioural Advertising and Consumer Privacy</li>
+                        <li>Web Advertising and Accessibility for Diverse Audiences</li>
+                        <li>Web Standards and Advertising Technologies</li>
+                        <li>Emerging Trends in Programmatic Advertising</li>
+                        <li>Sustainability in Web Advertising: Energy Efficiency and Environmental Impact</li>
+                        <li>Ad Fraud Detection and Prevention Techniques</li>
+                        <li>Cultural and Regional Differences in Advertising Strategies</li>
+                        <li>Interactive and Gamified Advertising Experiences</li>
+                        <li>Malvertising detection and prevention</li>
+                        <li>Age-specific Web advertisement</li>
+                        <li>Vulnerabilities in advertising ecosystems</li>
+                    </ul>
+
+                    <h2 id="important-dates-aoe">Important Dates (AoE)</h2>
+
+                    <ul>
+                        <li>
+                            Workshop paper submission (Extended):
+                            <s>31 December, 2025</s>
+
+                            <!--
+                            WRONG / OLD:
+                            <span style="color:red">11 January, 2026</span>
+                            -->
+
+                            <!-- NEW -->
+                            <span class="text-alert"> 11 January, 2026 </span>
+                        </li>
+
+                        <li>
+                            <b> Recycled Paper Fast Track submission: 13 - 18 January, 2026 </b>
+                        </li>
+
+                        <li>Workshop paper notification: 19 January, 2026</li>
+
+                        <li>
+                            Workshop paper camera-ready (Extended):
+                            <s>26 January, 2026</s>
+
+                            <!--
+                            WRONG / OLD:
+                            <span style="color:red">2 February, 2026</span>
+                            -->
+
+                            <!-- NEW -->
+                            <span class="text-alert"> 2 February, 2026 </span>
+                        </li>
+
+                        <li>
+                            Workshops:
+                            <s>April 13, 2026</s>
+
+                            <!--
+                            WRONG / OLD:
+                            <span style="color:red">29, June, 2026 (Remote)</span>
+                            -->
+
+                            <!-- NEW -->
+                            <span class="text-alert"> 29, June, 2026 (Remote) </span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="bg-even">
+                <section id="organisors" class="container content py-5">
+                    
+                    <h2 id="organising-committees">Organising Committees</h2>
+
+                    <h3 id="workshop-chair">Workshop Chair</h3>
+
+                    <ul>
+                        <li>
+                            Ehsan Toreini (<a href="mailto:e.toreini@samsung.com">e.toreini@samsung.com</a>, Samsung
+                            Research and Development Institute UK)
+                        </li>
+                        <li>
+                            Muadh Al Kalbani (<a href="mailto:m.alkalbani@samsung.com">m.alkalbani@samsung.com</a>,
+                            Samsung Research and Development Institute UK)
+                        </li>
+                    </ul>
+
+                    <h4 id="contact-us">Contact us</h4>
+
+                    <p>For any questions, please reach out to the organisors’ email addresses.</p>
+
+                    <h3 id="media-chair">Media Chair</h3>
+
+                    <ul>
+                        <li>
+                            Ananya Kittane Yogananda (<a href="mailto:a.yogananda@samsung.com"
+                                >a.yogananda@samsung.com</a
+                            >, Samsung Research and Development Institute UK)
+                        </li>
+                    </ul>
+
+                    <h3 id="program-committee">Program Committee</h3>
+
+                    <ul>
+                        <li>Maryam Mehrnezhad (Royal Holloway university of London)</li>
+                        <li>Matthew Atkinson (Samsung Research and Development Institute UK)</li>
+                        <li>Elizabeth Quaglia (Royal Holloway university of London)</li>
+                        <li>Roman Bauer (University of Surrey)</li>
+                        <li>Maite Frutos-Pascual (Birmingham City University)</li>
+                        <li>Stamos Katsigiannis (Durham University)</li>
+                        <li>Vinoba Vinayagamoorthy (Samsung Research and Development Institute UK)</li>
+                        <li>Charles Morisset (Durham University)</li>
+                        <li>Shrikant Malviya (SV National Institute of Technology)</li>
+                        <li>Roben Castagna Lunardi (IFRS)</li>
+                        <li>Marco Agus (Hamad Bin Khalifa University)</li>
+                        <li>Angeliki Tzouganato (OpenAIRE AMKE)</li>
+                        <li>Mina Alishahi (Open Universiteit)</li>
+                        <li>Yasuhiro Yoshida (Google)</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="bg-odd">
+                <section id="agenda" class="container content py-5">
+                    <h2 id="keynote">Keynote Speaker</h2>
+
+                    <div class="d-flex" style="gap: 1.5rem; align-items: stretch">
+                        <div style="flex: 1">
+                            <p>Keynote speaker, Mili Adlakha, Product Management - Samsung Browser.</p>
+
+                            <p>Keynote Title: “𝗦𝗮𝗺𝘀𝘂𝗻𝗴 𝗕𝗿𝗼𝘄𝘀𝗲𝗿 𝗮𝗻𝗱 𝘁𝗵𝗲 𝗙𝘂𝘁𝘂𝗿𝗲 𝗼𝗳 𝗔𝗜-𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗪𝗲𝗯 𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲𝘀”</p>
+
+                            <p>
+                                The keynote will explore the shift towards more agentic web browsers and what this could
+                                mean for the wider web ecosystem, including privacy, governance, advertising attribution
+                                and monetisation, and the browser’s evolving role as a mediator between users,
+                                publishers, services and advertisers.
+                            </p>
+                        </div>
+
+                        <div style="flex: 1; display: flex">
+                            <img
+                                style="width: 100%; height: 100%; object-fit: cover"
+                                src="mili.jpg"
+                                alt="Mili Adlakha"
+                            />
+                        </div>
+                    </div>
+
+                    <h2 id="accepted-papers">Accepted Papers</h2>
+
+                    <ol>
+                        <li>
+                            <b>
+                                Towards Automated Brand-Safety Detection: A Novel Dataset and Comparative Analysis of
+                                Language Models </b>,
+                            <i>Xin Peng and Gerald Penn</i>
+                        </li>
+                        <li>
+                            <b> Feedback Control for Small Budget Campaigns in Advertising </b>,
+                            <i>Sreeja Apparaju, Yichuan Niu and Xixi Qi</i>
+                        </li>
+                        <li>
+                            <b> Calculating Narrative Tension for Ad Placement in Online Narrative Fiction </b>,
+                            <i>Vedansh Mehta, Sajad Shirali-Shahreza and Gerald Penn</i>
+                        </li>
+                        <li>
+                            <b> Anatomy of Generative Scam Campaigns in Online Advertising Ecosystems </b>,
+                            <i>Ewelina Bartuzi-Trokielewicz and Alicja Martinek</i>
+                        </li>
+                        <li>
+                            <b> Smart Fast Finish: Preventing Overdelivery via Daily Budget Pacing at DoorDash </b>,
+                            <i>Rohan Garg, Yongjin Xiao, Jason Yang and Mandar Rahurkar</i>
+                        </li>
+                        <li>
+                            <b>
+                                HarmonRank: Ranking-aligned Multi-objective Ensemble for Live-streaming E-commerce
+                                Recommendation </b>,
+                            <i>
+                                Boyang Xia, Zhou Yu, Zhiliang Zhu, Hanxiao Sun, Biyun Han, Jun Wang, Runnan Liu and
+                                Wenwu Ou
+                            </i>
+                        </li>
+                    </ol>
+
+                    <h2 id="workshop-agenda">Workshop Agenda</h2>
+
+                    <p>
+                        Workshop will run on
+                        <a
+                            href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=Workshop+on+Emerging+Trends+in+Web+Advertising&amp;iso=20260629T10&amp;p1=776&amp;ah=7&amp;am=30"
+                        >
+                            Monday the 29th of June, from 10:00 to 17:30 Dubai time </a
+                        >. For brainstorming, please carefully read the requirements to prepare
+                        <b>before the sessions</b>
+                        <a href="#brainstorming-agenda">here.</a>
+                    </p>
+
+                    <table class="tg">
+                        <thead>
+                            <tr>
+                                <th class="tg-c3ow">Topic</th>
+                                <th class="tg-c3ow">10:00 - 17:30</th>
+                                <th class="tg-c3ow">Allocated Duration (minutes)</th>
+                                <th class="tg-c3ow">From - To (Dubai Local Time)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="tg-0pky">Opening</td>
+                                <td class="tg-0pky">Workshop Welcome</td>
+                                <td class="tg-0pky">10</td>
+                                <td class="tg-0pky" rowspan="2">10:00 - 10:50</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Keynote Presentation</td>
+                                <td class="tg-0pky">Samsung Browser and the Future of AI-Powered Web Experiences</td>
+                                <td class="tg-0pky">40</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Coffee Break</td>
+                                <td class="tg-0pky"></td>
+                                <td class="tg-0pky">10</td>
+                                <td class="tg-0pky">10:50 - 11:00</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky" rowspan="2">Sessions 1 (Emerging topics in Ad Fraud)</td>
+                                <td class="tg-0pky">
+                                    Towards Automated Brand-Safety Detection: A Novel Dataset and Comparative Analysis
+                                    of Language Models
+                                </td>
+                                <td class="tg-0pky">25</td>
+                                <td class="tg-0pky" rowspan="2">11:00 - 11:50</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">
+                                    Anatomy of Generative Scam Campaigns in Online Advertising Ecosystems
+                                </td>
+
+                                <td class="tg-0pky">25</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Coffee Break and Networking</td>
+                                <td class="tg-0pky"></td>
+                                <td class="tg-0pky">10</td>
+                                <td class="tg-0pky">11:50 - 12:00</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky" rowspan="3">Session 2 (Emerging topics in Ad delivery)</td>
+                                <td class="tg-0pky">Feedback Control for Small Budget Campaigns in Advertising</td>
+                                <td class="tg-0pky">25</td>
+                                <td class="tg-0pky" rowspan="3">12:00 - 13:15</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">
+                                    Calculating Narrative Tension for Ad Placement in Online Narrative Fiction
+                                </td>
+                                <td class="tg-0pky">25</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">
+                                    Smart Fast Finish: Preventing Overdelivery via Daily Budget Pacing at DoorDash
+                                </td>
+                                <td class="tg-0pky">25</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Lunch and Networking</td>
+                                <td class="tg-0pky"></td>
+                                <td class="tg-0pky">45</td>
+                                <td class="tg-0pky">13:15 - 14:00</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Brainstorming 1 (Emerging Advertising Platforms)</td>
+                                <td class="tg-0pky">
+                                    open discussion on challenges, implementation technologies, and the role of sensors,
+                                    haptic feedback, and vision recognition in immersive advertising
+                                </td>
+                                <td class="tg-0pky">90</td>
+                                <td class="tg-0pky">14:00 - 15:30</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Coffee Break and Networking</td>
+                                <td class="tg-0pky"></td>
+                                <td class="tg-0pky">15</td>
+                                <td class="tg-0pky">15:30 - 15:45</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Brainstorming 2 (Post-cookie Advertising)</td>
+                                <td class="tg-0pky">
+                                    open discussion on the impact of private advertising initiatives and efforts to
+                                    enhance the post-cookie era across the advertising ecosystem
+                                </td>
+                                <td class="tg-0pky">90</td>
+                                <td class="tg-0pky">15:45 - 17:15</td>
+                            </tr>
+
+                            <tr>
+                                <td class="tg-0pky">Remarks and Future Plans</td>
+                                <td class="tg-0pky">Closing Presentation</td>
+                                <td class="tg-0pky">15</td>
+                                <td class="tg-0pky">17:15 - 17:30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2 id="brainstorming-agenda">Brainstorming Session detail</h2>
+
+                    <h3>Brainstorming Preparations</h3>
+
+                    <p>
+                        As we approach the workshop, Please think about three discussion questions for each of the
+                        brainstorming topics. These questions should aim to spark discussion and engagement. The
+                        questions should include:
+                    </p>
+
+                    <ol>
+                        <li>
+                            <b>One controversial question:</b>
+                            A controversial question that challenges existing norms or sparks debate.
+                        </li>
+
+                        <li>
+                            <b>One practical implementation challenge:</b>
+                            A question that addresses real-world challenges in implementing the discussed ideas or
+                            technologies.
+                        </li>
+
+                        <li>
+                            <b>One future research question:</b>
+                            A question that explores potential areas for future research or innovation.
+                        </li>
+                    </ol>
+
+                    <p>
+                        Example: “Should privacy-preserving advertising be standardised at the browser level or
+                        application level?”
+                    </p>
+
+                    <p>On the day, we will discuss the brainstorming sessions to achieve the following goals:</p>
+
+                    <h3>Brainstorming Session 1 - Emerging Advertising Platforms</h3>
+
+                    <h4>Goals:</h4>
+
+                    <ul>
+                        <li>
+                            Explore the role of immersive technologies, including WebXR, AR/VR/MR, spatial browsing,
+                            sensors, haptics and AI-mediated experiences, in shaping future web advertising.
+                        </li>
+
+                        <li>
+                            Discuss practical opportunities and implementation challenges for immersive advertising,
+                            including browser/device support, permissions, interoperability, measurement, accessibility
+                            and developer experience.
+                        </li>
+
+                        <li>
+                            Identify responsible approaches for immersive advertising that provide user value while
+                            avoiding intrusive, manipulative or privacy-invasive patterns.
+                        </li>
+                    </ul>
+
+                    <h4>Seed Questions:</h4>
+
+                    <ol>
+                        <li>
+                            What immersive advertising experiences provide genuine value to users, such as product
+                            visualisation, try-before-you-buy, contextual placement or opt-in interactive adverts?
+                        </li>
+
+                        <li>
+                            How can WebXR and related technologies, such as depth sensing, hand input, camera-enabled
+                            features, haptics, light estimation, support useful advertising without excessive sensor
+                            access?
+                        </li>
+
+                        <li>
+                            What are the main challenges in implementing immersive advertising at scale, including
+                            performance, permissions, fallbacks, measurement and cross-platform support?
+                        </li>
+
+                        <li>
+                            What privacy, safety, accessibility and UX guardrails are needed for spatial adverts,
+                            including ad labelling, user controls, dismiss/block options and protection against
+                            biometric or environmental profiling?
+                        </li>
+                    </ol>
+
+                    <h4>Expected Outputs:</h4>
+
+                    <ul>
+                        <li>Top 5 promising immersive advertising use cases.</li>
+                        <li>Top 5 implementation challenges for WebXR and immersive advertising technologies.</li>
+                        <li>Top 3 privacy, UX or standardisation guardrails for responsible immersive advertising.</li>
+                        <li>Top 3 market or research trends to watch in the next 3–5 years</li>
+                    </ul>
+
+                    <hr />
+
+                    <h3>Brainstorming Session 2 - Future of Post-Cookie Advertising</h3>
+
+                    <h4>Goals:</h4>
+
+                    <ul>
+                        <li>Identify key research gaps and challenges in the post-cookie advertising landscape.</li>
+
+                        <li>
+                            Explore opportunities for standardization and collaboration across the advertising
+                            ecosystem.
+                        </li>
+
+                        <li>Foster discussions on innovative solutions and future research directions.</li>
+                    </ul>
+
+                    <h4>Seed Questions:</h4>
+
+                    <ol>
+                        <li>What are the main research gaps in post-cookie advertising?</li>
+
+                        <li>What standardization opportunities exist to ensure a seamless transition?</li>
+
+                        <li>
+                            How can privacy-preserving technologies be effectively integrated into advertising
+                            strategies?
+                        </li>
+                    </ol>
+
+                    <h4>Expected Outputs:</h4>
+
+                    <ul>
+                        <li>Top 5 promising post-cookie use cases.</li>
+                        <li>Top 5 implementation challenges for post-cookie advertising era.</li>
+                        <li>Top 3 standardisation guardrails for responsible post-cookie advertising.</li>
+                        <li>Top 3 market or research trends to watch in the next 3–5 years</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>
+                This website is built using
+                <a href="https://www.getzola.org">Zola</a>
+                and the
+                <a href="http://github.com/aterenin/academic-workshop">Academic Workshop</a>
+                theme, which is
+                <a href="https://jeffhuang.com/designed_to_last">designed to last</a>.
+            </p>
+        </footer>
+    </body>
 </html>

@@ -90,7 +90,15 @@ svg {
     --color-primary: #007bff;
     --color-light: #f8f9fa;
     --color-white: #fff;
-    --color-black: #000
+    --color-black: #000;
+
+    /* NEW:
+       --color-border was already being used by <hr>, but it was never actually defined. */
+    --color-border: #dee2e6;
+
+    /* NEW:
+       theme-aware replacement for the hard-coded red date text. */
+    --color-alert: #c62828;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -99,7 +107,11 @@ svg {
         --color-primary: #33a3ff;
         --color-light: #1b1e1f;
         --color-white: #181a1b;
-        --color-black: #e7e5e4
+        --color-black: #e7e5e4;
+
+        /* NEW: dark-mode equivalents of the new shared colours. */
+        --color-border: #4b5155;
+        --color-alert: #ff8a80;
     }
 
     .dark-invert,
@@ -107,7 +119,21 @@ svg {
         filter: invert(90%) hue-rotate(180deg) sepia(10%)
     }
 
-    img:not(.dark-invert) {
+    /*
+     * WRONG / OLD:
+     *
+     * This automatically darkened every normal image whenever the system entered dark mode. That changes photographs themselves rather than just changing the page UI.
+     * It can also produce unwanted results when a browser or device performs its own dark-mode adjustments.
+     * img:not(.dark-invert) {
+     *     filter: brightness(80%)
+     * }
+     */
+
+    /*
+     * NEW:
+     * Darkening an image is now opt-in. Add class="dark-dim" only to an image that genuinely needs to be dimmed in dark mode.
+     */
+    img.dark-dim {
         filter: brightness(80%)
     }
 }
@@ -407,12 +433,163 @@ table>:not(caption)>*>* {
     border-bottom-width: 1px
 }
 
-/* FIXME: This was causing problems in dark mode - need dark mode styles for table. */
 /*
+ * WRONG / OLD:
+ *
+ * This was previously disabled because the table-specific light backgrounds could override it and create inconsistent
+ * results in dark mode.
+ *
+ * table>tbody>tr:hover>* {
+ *     background-color: color-mix(
+ *         in srgb,
+ *         var(--color-text),
+ *         var(--color-white) 90%
+ *     )
+ * }
+ */
+
+/* NEW:
+   Table hover now derives its colour from the active theme. */
 table>tbody>tr:hover>* {
-    background-color: color-mix(in srgb, var(--color-text), var(--color-white) 90%)
+    background-color: color-mix(
+        in srgb,
+        var(--color-text) 10%,
+        var(--color-white)
+    )
 }
-*/
+
+/*
+ * ============================================================
+ * NEW: WORKSHOP AGENDA TABLE
+ * ============================================================
+ *
+ * These rules were previously embedded directly in index.html.
+ * They now live with the rest of the site's CSS.
+ */
+
+.tg {
+    border-collapse: collapse;
+    /*
+     * WRONG / OLD:
+     *
+     * border-color: #ccc;
+     */
+
+    /* NEW */
+    border-color: var(--color-border);
+    border-spacing: 0
+}
+
+.tg td {
+    /*
+     * WRONG / OLD:
+     *
+     * background-color: #fff;
+     * border-color: #ccc;
+     * color: #333;
+     */
+
+    /* NEW: Follow the site's active light/dark theme. */
+    background-color: var(--color-white);
+    border-color: var(--color-border);
+    color: var(--color-text);
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal
+}
+
+.tg th {
+    /*
+     * WRONG / OLD:
+     *
+     * background-color: #f0f0f0;
+     * border-color: #ccc;
+     * color: #333;
+     */
+
+    /* NEW:
+       Create the heading surface from the current theme
+       rather than forcing a light grey background. */
+    background-color: color-mix(
+        in srgb,
+        var(--color-text) 6%,
+        var(--color-light)
+    );
+
+    border-color: var(--color-border);
+    color: var(--color-text);
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal
+}
+
+.tg .tg-c3ow {
+    border-color: inherit;
+    text-align: center;
+    vertical-align: top
+}
+
+.tg .tg-0pky {
+    border-color: inherit;
+    text-align: left;
+    vertical-align: top
+}
+
+/* NEW:
+   Ensure the agenda table's explicit cell background does
+   not prevent the general hover treatment from appearing. */
+.tg>tbody>tr:hover>* {
+    background-color: color-mix(
+        in srgb,
+        var(--color-text) 10%,
+        var(--color-white)
+    )
+}
+
+/*
+ * ============================================================
+ * NEW: WORKSHOP REPORT BANNER
+ * ============================================================
+ *
+ * Replaces the hard-coded light-only inline CSS from index.html.
+ */
+
+.report-banner {
+    background-color: color-mix(
+        in srgb,
+        var(--color-primary) 10%,
+        var(--color-white)
+    );
+
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 8px 8px 0
+}
+
+.report-banner a {
+    color: var(--color-primary);
+    text-decoration: none
+}
+
+.report-banner a:hover,
+.report-banner a:focus {
+    text-decoration: underline
+}
+
+/* NEW:
+   Theme-aware replacement for inline style="color:red". */
+.text-alert {
+    color: var(--color-alert)
+}
 
 .w-25 {
     width: 25% !important
@@ -814,7 +991,17 @@ table>tbody>tr:hover>* {
 
 .mb-n3,
 .my-n3 {
-    margin-bottom: -1re7m !important
+    /*
+     * WRONG / OLD:
+     *
+     * margin-bottom: -1re7m !important;
+     *
+     * "re7m" is not a valid CSS unit, so the browser
+     * simply discarded this declaration.
+     */
+
+    /* NEW */
+    margin-bottom: -1rem !important
 }
 
 .ml-n3,
